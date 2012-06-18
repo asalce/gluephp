@@ -44,10 +44,7 @@
         static function stick ($urls) {
 
             $method = strtoupper($_SERVER['REQUEST_METHOD']);
-            $path = $_SERVER['REQUEST_URI'];
-
-            $base_path = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
-            $path = '/' . str_replace($base_path, '', $path);
+            $path = strrchr($_SERVER['REQUEST_URI'], '/');
 
             $found = false;
 

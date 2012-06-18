@@ -12,8 +12,6 @@ class Index {
             $name = $params[0];
             $name = ucfirst($name);
         }
-
-        echo "Hello, $name!";
     }
 }
 
