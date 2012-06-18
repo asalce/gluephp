@@ -46,15 +46,21 @@
             $method = strtoupper($_SERVER['REQUEST_METHOD']);
             $path = $_SERVER['REQUEST_URI'];
 
-            $found = false;
+            $base_path = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
+            $path = '/' . str_replace($base_path, '', $path);
 
-            krsort($urls);
+            $found = false;
 
             foreach ($urls as $regex => $class) {
                 $regex = str_replace('/', '\/', $regex);
                 $regex = '^' . $regex . '\/?$';
+
                 if (preg_match("/$regex/i", $path, $matches)) {
+                    $matches = explode('/', $matches[0]);
+                    array_shift($matches);
+
                     $found = true;
+
                     if (class_exists($class)) {
                         $obj = new $class;
                         if (method_exists($obj, $method)) {
