@@ -21,7 +21,7 @@
      *
      * class page {
      *      function GET($matches) {
-     *          echo "Your requested page " . $matches[1];
+     *          echo "Your requested page " . $matches[0];
      *      }
      * }
      *
@@ -56,7 +56,6 @@
                 $regex = '^' . $regex . '\/?$';
 
                 if (preg_match("/$regex/i", $path, $matches)) {
-                    $matches = explode('/', $matches[0]);
                     array_shift($matches);
 
                     $found = true;

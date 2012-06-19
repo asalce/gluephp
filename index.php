@@ -2,7 +2,7 @@
 include_once 'glue.php';
 
 $urls = array(
-    '/(.*)' => 'Index',
+    '/([a-z]*)' => 'Index',
 );
 
 class Index {
