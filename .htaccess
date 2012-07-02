@@ -1,5 +1,6 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
+    #This line will need to be adjusted
     RewriteBase /~max/php/gluephp
 
     #Checks to see if the user is attempting to access a valid file,
