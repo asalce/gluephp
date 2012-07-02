@@ -2,19 +2,19 @@
 require 'glue.php';
 
 $urls = array(
-    '/([a-z]*)' => 'Index',
+  '/([a-z]*)' => 'Index',
 );
 
 class Index {
-    public function GET($params) {
-        $name = 'World';
-        if (!empty($params[0])) {
-            $name = $params[0];
-            $name = ucfirst($name);
-        }
-
-        echo "Hello, $name!";
+  public function GET($name) {
+    if (empty($name)) {
+      $name = 'World';
+    } else {
+      $name = ucfirst($name);
     }
+
+    echo "Hello, $name!";
+  }
 }
 
 glue::stick($urls);
