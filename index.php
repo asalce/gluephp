@@ -1,5 +1,5 @@
 <?php
-include_once 'glue.php';
+require 'glue.php';
 
 $urls = array(
     '/([a-z]*)' => 'Index',
